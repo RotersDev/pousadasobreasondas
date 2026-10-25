@@ -444,7 +444,7 @@
     var total = state.adults + state.kids;
     $('[data-step="adults"][data-dir="-1"]').disabled = state.adults <= 1;
     $('[data-step="kids"][data-dir="-1"]').disabled = state.kids <= 0;
-    $$('[data-dir="1"]', pickGuests).forEach(function (b) { b.disabled = total >= 10; });
+    $$('[data-dir="1"]', pickGuests).forEach(function (b) { b.disabled = total >= 8; });
   }
 
   function position(picker, field) {
