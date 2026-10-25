@@ -640,16 +640,50 @@ a.topbar__item:hover { color: #fff; }
 .cta-band__actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
 /* ---------- Footer ---------- */
-.footer { background: var(--navy); color: rgba(255,255,255,.7); padding-top: 100px; position: relative; }
-.footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.4fr; gap: 60px; padding-bottom: 80px; }
-.brand--light { color: #fff; margin-bottom: 24px; }
-.footer__brand p { font-size: 15px; max-width: 320px; margin-bottom: 28px; }
-.footer h4 { font-family: var(--serif); font-size: 22px; color: #fff; margin-bottom: 22px; }
-.footer__col ul { display: flex; flex-direction: column; gap: 10px; font-size: 15px; }
+.footer { background: var(--navy); color: rgba(255,255,255,.72); padding-top: 90px; position: relative; }
+.footer__social-band {
+  display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap;
+  padding: 40px 44px; margin-bottom: 80px; border-radius: 14px;
+  background: linear-gradient(120deg, rgba(58,169,216,.16), rgba(227,168,59,.10));
+  border: 1px solid rgba(255,255,255,.10);
+}
+.footer__social-text { display: flex; align-items: center; gap: 24px; min-width: 0; }
+.footer__social-text .eyebrow { margin-bottom: 8px; }
+.footer__social-text h3 { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 32px); color: #fff; line-height: 1.2; margin-bottom: 6px; word-break: break-word; }
+.footer__social-text h3 a { color: var(--gold-2); transition: color .3s; }
+.footer__social-text h3 a:hover { color: #fff; }
+.footer__social-text p:not(.eyebrow) { margin: 0; font-size: 15px; }
+.footer__ig-badge {
+  flex-shrink: 0; width: 72px; height: 72px; border-radius: 20px; display: grid; place-items: center; color: #fff;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  box-shadow: 0 16px 30px -14px rgba(214,36,159,.7);
+}
+.footer__ig-badge svg { width: 36px; height: 36px; }
+.footer__social-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.footer__grid { display: grid; grid-template-columns: 1.35fr .8fr 1.55fr 1.1fr; gap: 48px; padding-bottom: 80px; }
+.footer__logo { display: inline-block; margin-bottom: 22px; }
+.footer__logo img { width: 300px; max-width: 100%; height: auto; }
+.footer__brand p { font-size: 15px; max-width: 340px; margin-bottom: 26px; }
+.footer__socials { display: flex; flex-wrap: wrap; gap: 10px; }
+.footer__socials a {
+  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: #fff;
+  border: 1px solid rgba(255,255,255,.22); transition: background .3s, border-color .3s, color .3s, transform .3s var(--ease);
+}
+.footer__socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); transform: translateY(-3px); }
+.footer__socials svg { width: 19px; height: 19px; }
+.footer h4 { font-family: var(--serif); font-size: 21px; color: #fff; margin-bottom: 22px; position: relative; padding-bottom: 14px; }
+.footer h4::after { content: ""; position: absolute; left: 0; bottom: 0; width: 28px; height: 2px; background: var(--gold); }
+.footer__col ul { display: flex; flex-direction: column; gap: 11px; font-size: 15px; }
 .footer__col a { transition: color .3s; }
 .footer__col a:hover { color: var(--gold-2); }
-.footer__contact li { display: flex; gap: 12px; align-items: flex-start; word-break: break-word; }
+.footer__contact li { display: flex; gap: 12px; align-items: flex-start; overflow-wrap: anywhere; }
+.footer__contact a, .footer__contact span { min-width: 0; }
 .footer__contact svg { width: 18px; height: 18px; color: var(--gold-2); margin-top: 4px; }
+.footer__map-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #fff; border-bottom: 1px solid var(--gold); padding-bottom: 4px; transition: color .3s; }
+.footer__map-link:hover { color: var(--gold-2); }
+.footer__map-link svg { width: 16px; height: 16px; }
+.topbar__social svg { color: #fff; }
 .footer__wave { color: #0a2130; line-height: 0; }
 .footer__wave svg { width: 100%; height: 40px; }
 .footer__bottom { background: #0a2130; font-size: 13px; }
@@ -687,6 +721,7 @@ a.topbar__item:hover { color: #fff; }
   .navbar__inner { gap: 28px; }
   .about__grid, .services__grid, .contact__grid { gap: 60px; }
   .footer__grid { grid-template-columns: 1fr 1fr; }
+  .footer__brand { grid-column: 1 / -1; }
 }
 @media (max-width: 1024px) {
   .nav-links, .navbar__cta { display: none; }
@@ -766,7 +801,15 @@ a.topbar__item:hover { color: #fff; }
   .map__card { position: static; max-width: none; box-shadow: none; padding: 28px 22px; }
   .cta-band { padding: 110px 0; }
   .footer { padding-top: 70px; }
-  .footer__grid { grid-template-columns: 1fr; gap: 44px; padding-bottom: 50px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 40px; padding-bottom: 50px; }
+  .footer__social-band { padding: 28px 22px; margin-bottom: 56px; gap: 24px; }
+  .footer__social-text { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer__social-text h3 { font-size: 18px; }
+  .footer__social-text h3 a { display: block; font-size: 17.5px; }
+  .footer__ig-badge { width: 56px; height: 56px; border-radius: 16px; }
+  .footer__ig-badge svg { width: 28px; height: 28px; }
+  .footer__social-actions { width: 100%; }
+  .footer__social-actions .btn { flex: 1 1 100%; }
   .lightbox { grid-template-columns: 44px 1fr 44px; }
   .wa-float { right: 16px; bottom: 16px; height: 56px; padding: 0 15px; }
 }
